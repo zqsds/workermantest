@@ -5,8 +5,9 @@
  * Date: 2017/5/9
  * Time: 10:16
  */
+var_dump(__DIR__);die;
 use Workerman\Worker;
-require_once __DIR__ . '/Workerman/Workerman/Autoloader.php';
+require_once __DIR__ . '/Workerman/Autoloader.php';
 
 // 创建一个Worker监听2345端口，使用http协议通讯
 $http_worker = new Worker("http://0.0.0.0:2345");
