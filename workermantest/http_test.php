@@ -5,7 +5,6 @@
  * Date: 2017/5/9
  * Time: 10:16
  */
-var_dump(__DIR__);die;
 use Workerman\Worker;
 require_once __DIR__ . '/Workerman/Autoloader.php';
 
