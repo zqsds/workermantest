@@ -19,7 +19,7 @@ $http_worker->onMessage = function($connection, $data)
 {
     // 向浏览器发送hello world
     var_dump($_GET,$_POST);
-    $connection->send("$_POST");
+    $connection->send('hello world');
 };
 
 // 运行worker
