@@ -9,7 +9,7 @@ use \Workerman\Worker;
 use \Workerman\Connection\AsyncTcpConnection;
 require_once __DIR__ . '/Workerman/Autoloader.php';
 
-$worker = new Worker();
+$worker = new Worker('tcp://0.0.0.0:8484');
 
 $worker->onWorkerStart = function($worker)
 {
@@ -21,6 +21,10 @@ $worker->onWorkerStart = function($worker)
         echo "recv $msg\n";
     };
     $con->onClose = function($con) {
+        global $worker;
+        foreach ($worker->connection as $conn){
+            $conn->send("断线重连");
+        }
         // 如果连接断开，则在1秒后重连
         $con->reConnect(1);
     };
