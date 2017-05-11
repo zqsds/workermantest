@@ -13,7 +13,7 @@ $worker = new Worker('tcp://0.0.0.0:8484');
 
 $worker -> onMessage = function ($connection){
     echo $connection -> id;
-    var_dump($connection);
+    var_dump($connection -> worker);
 };
 
 Worker::runAll();
