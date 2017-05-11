@@ -11,9 +11,11 @@ require_once __DIR__."/Workerman/Autoloader.php";
 
 $worker = new Worker('tcp://0.0.0.0:8484');
 
-$worker -> onMessage = function ($connection){
-    echo $connection -> id;
-    var_dump($connection -> worker);
+$worker -> onMessage = function ($connection,$data){
+    foreach($connection->worker->connections as $con)
+    {
+        $con->send($data);
+    }
 };
 
 Worker::runAll();
