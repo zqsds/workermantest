@@ -27,7 +27,7 @@ $worker->onWorkerStart = function($worker){
     };
 
     $con->onMessage = function($con, $data) {
-        echo $data;
+        $con -> send("$data");
     };
 
     $con->connect();
