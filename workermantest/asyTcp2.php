@@ -16,7 +16,7 @@ $worker->onWorkerStart = function($worker){
     $context_option = array(
         'socket' => array(
             // ip必须是本机网卡ip，并且能访问对方主机，否则无效
-            'bindto' => '45.78.50.15:27557',
+            'bindto' => '172.16.10.183',
         ),
     );
 
