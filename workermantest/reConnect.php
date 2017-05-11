@@ -20,13 +20,13 @@ $worker->onWorkerStart = function($worker)
     $con->onMessage = function($con, $msg) {
         echo "recv $msg\n";
     };
-    $con->onClose = function($con) {
+    $worker->onClose = function($connection) {
         global $worker;
         foreach ($worker->connection as $conn){
             $conn->send("断线重连");
         }
         // 如果连接断开，则在1秒后重连
-        $con->reConnect(1);
+        $connection->reConnect(1);
     };
     $con->connect();
 };
