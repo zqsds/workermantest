@@ -54,7 +54,7 @@ function handle_close($connection) {
     }
 }
 
-$text_worker = new Worker("websocket://0.0.0.0:2347");
+$text_worker = new Worker("websocket://104.224.182.173:2347");
 
 $text_worker->count = 1;
 
