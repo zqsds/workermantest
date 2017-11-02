@@ -33,19 +33,17 @@ function handle_connection($connection) {
     global $text_worker, $global_uid;
     // 为这个链接分配一个uid
     $connection->uid = ++$global_uid;
-    $connection->send("hello world!!");
-    /*foreach ($text_worker->connections as $conn) {
+    foreach ($text_worker->connections as $conn) {
         $conn->send("user[{$connection->uid}] online");
-    }*/
+    }
 }
 
 // 当客户端发送消息过来时，转发给所有人
 function handle_message($connection, $data) {
-    $connection->send("$data 有些话我只对你一个人说哦!!");
-    /*global $text_worker;
+    global $text_worker;
     foreach ($text_worker->connections as $conn) {
         $conn->send("user[{$connection->uid}] said: $data");
-    }*/
+    }
 }
 
 // 当客户端断开时，广播给所有客户端
